@@ -1,0 +1,14 @@
+slip genrate
+
+  try{
+             java.util.Calendar cal = new java.util.GregorianCalendar();
+            SalaryHandling.Save(new SalarySlipClass(Integer.parseInt(idTextField.getText()), 
+                    "", "", salaryMonth.getSelectedItem().toString(), 
+                    Integer.parseInt(salaryDays.getSelectedItem().toString()),
+                    Double.parseDouble(advanceTextField.getText()),
+                    Double.parseDouble(deductionTextField.getText()), 1, 
+                    cal.getTime().toString()));
+            
+        }catch(NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Invalid Data Entered.");
+        }

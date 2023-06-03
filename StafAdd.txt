@@ -1,0 +1,196 @@
+add staf     
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Add_staf {
+
+JFrame frame;
+JLabel head,name,age,sal,time,exp,desi,experties;
+JTextField NAME,AGE,SAL,TIME,EXP,DESI,EXPERTIES;
+JButton submit,reset,home ,back;
+JTextArea area;
+
+
+	Add_staf(){
+
+		
+		
+
+		frame=new JFrame();
+	 name	=new JLabel("name");
+		head=new JLabel("Add Staf");
+		age=new JLabel("age :");
+		sal=new JLabel("salary :");
+	    time	=new JLabel(" duty time : ");
+		exp=new JLabel("experiencs :");
+		desi=new JLabel("Design :");
+        experties=new JLabel("Area of Experties :");		
+		
+       submit =new JButton("submit");
+       reset=new JButton("reset");
+        home=new JButton("<< home");
+        back=new JButton(" << back");
+
+		
+    	Font font1=new Font("Arial Rounded MT",Font.BOLD,20);
+	    Font tfont=new Font("Century Schoolbook",Font.BOLD,20);
+		   
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Container c=frame.getContentPane();
+		c.setBackground(Color.cyan);
+		
+		
+		ImageIcon backgroung_Image = new ImageIcon("common.jpg");
+	    Image img = backgroung_Image.getImage();
+		Image temp_img = img.getScaledInstance(1960,1000, Image.SCALE_SMOOTH);
+		backgroung_Image = new ImageIcon(temp_img);
+		JLabel bg = new JLabel("", backgroung_Image, JLabel.CENTER);
+		frame.add(bg);
+		//bg.add(login);
+		//bg.add(heading);
+
+		bg.setBounds(0, 0, 1960,1000);
+		frame.setVisible(true);
+	    
+
+		  head.setBounds(650, 50, 850, 100);
+		   bg.add(head);
+		    Font font=new Font("Imprint MT Shadow",Font.BOLD,70);
+		    head.setFont(font);
+		
+
+		    name.setBounds(300, 200, 100, 100);
+		    name.setFont(font1);
+		    bg.add(name);
+		
+
+		    age.setBounds(300, 270, 100, 100);
+		    age.setFont(font1);
+		    bg.add(age);
+		    
+		    sal.setBounds(300, 340, 100, 100);
+		    sal.setFont(font1);
+		    bg.add(sal);
+		    
+		    time.setBounds(300, 410, 100, 100);
+		    time.setFont(font1);
+		    bg.add(time);
+		    
+		    exp.setBounds(300, 480, 100, 100);
+		    exp.setFont(font1);
+		    bg.add(exp);
+		    
+		    desi.setBounds(300, 550, 100, 100);
+		    desi.setFont(font1);
+		    bg.add(desi);
+		    
+		    
+		    experties.setBounds(300, 620, 100, 100);
+		    experties.setFont(font1);
+		    bg.add(experties);
+		  
+	
+	        
+
+	//NAME,AGE,SAL,TIME,EXP,DESI,EXPERTIES;
+		   NAME=new JTextField();
+		  AGE =new JTextField();
+	        SAL=new JTextField();
+	        TIME=new JTextField();
+	        EXP=new JTextField();
+	        DESI=new JTextField();
+	        EXPERTIES=new JTextField();
+	        
+
+		    NAME.setBounds(500, 240, 100, 30);
+		    NAME.setFont(font1);
+		    bg.add(NAME);
+		
+
+		    AGE.setBounds(500, 300, 100, 30);
+		    AGE.setFont(font1);
+		    bg.add(AGE);
+		    
+		    SAL.setBounds(500, 365, 100, 30);
+		    SAL.setFont(font1);
+		    bg.add(SAL);
+		    
+		    TIME.setBounds(500, 440, 100, 30);
+		    TIME.setFont(font1);
+		    bg.add(TIME);
+		    
+		    EXP.setBounds(500, 515, 100, 30);
+		    EXP.setFont(font1);
+		    bg.add(EXP);
+		    
+		    DESI.setBounds(500, 585, 100, 30);
+		    DESI.setFont(font1);
+		    bg.add(DESI);
+		    
+		    
+		    EXPERTIES.setBounds(500, 650, 100, 30);
+		    EXPERTIES.setFont(font1);
+		    bg.add(EXPERTIES);
+		  
+	//
+		    //texr area
+		    
+		     area=new JTextArea();
+	         area.setBounds(1000,200,400,300);
+	         bg.add(area);
+	// buttons
+	         
+	         //
+	         submit=new JButton("submit");
+	         submit.setBounds(400,750,100,30);
+	         bg.add(submit);
+	         
+	         submit.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+				
+					 String na=NAME.getText();
+					 String ag=AGE.getText();
+					 String sa= SAL.getText();
+					 
+					 String t=TIME.getText();
+					 String ex=EXP.getText();
+					 String de=DESI.getText();
+					 String exp=EXPERTIES.getText();
+					
+					area.setText(na);
+					area.setText(ag);
+				
+
+               					
+				}
+			});
+	         
+	}
+	public static void main(String[] args) {
+new Add_staf();
+
+	}
+
+}

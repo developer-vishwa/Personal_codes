@@ -1,0 +1,29 @@
+save logic in java 
+	
+		String str="insert into vi values(?,?)";
+		
+		int a=Integer.parseInt(ID.getText());      
+		String b=NAME.getText();
+		
+				oracle.jdbc.driver.OracleDriver obj=new oracle.jdbc.driver.OracleDriver();
+			    Connection con = null;
+				try {
+					con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system","password");
+				} catch (SQLException e) {
+					
+					e.printStackTrace();
+				}
+				try {
+					
+					 PreparedStatement stmt=con.prepareStatement(str);
+						
+						
+						stmt.setInt(1, a);
+						stmt.setString(2,b);
+						System.out.println("succes ful input");
+						stmt.executeUpdate();
+						System.out.println("update succesful");  
+				}catch (SQLException e) {
+					  
+				    	 e.printStackTrace();
+				}

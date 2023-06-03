@@ -1,0 +1,299 @@
+delete account
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import javax.swing.*;
+public class Deletep  {
+
+    private JFrame frame;
+	private JLabel head,code,name,borrow,total;
+	private JButton delete; 
+	private JTextField NAME,CODE,BORROW,TOTAL;
+	
+	Deletep(){
+		frame=new JFrame();
+		head=new JLabel("delete costomer account");
+		
+		
+		
+		//frame.setResizable(false);
+		
+		frame.setSize(600,500);
+	    frame.setLayout(null);
+        frame.setTitle("delete costomer account");
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        //frame.setLocationRelativeTo(c);    
+	  
+        
+        ImageIcon backgroung_Image = new ImageIcon("common.jpg");
+        Image img = backgroung_Image.getImage();
+		Image temp_img = img.getScaledInstance(900, 600, Image.SCALE_SMOOTH);
+		backgroung_Image = new ImageIcon(temp_img);
+		JLabel bg = new JLabel("", backgroung_Image, JLabel.CENTER);
+		frame.add(bg);
+		//bg.add(login);
+		//bg.add(head);
+
+		bg.setBounds(0, 0, 900, 600);
+		frame.setVisible(true);
+        
+        
+        
+        
+    	Font font1=new Font("Arial Rounded MT",Font.BOLD,20);
+	    Font tfont=new Font("Century Schoolbook",Font.BOLD,20);
+		   
+		   
+	   //head=new JLabel();
+	
+	
+     head.setBounds(90,30, 600, 100);
+    // head. setHorizontalAlignment(SwingConstants. CENTER);
+     Font font=new Font("Imprint MT Shadow",Font.BOLD,40);
+     head.setFont(font);
+     bg.add(head);
+	
+	
+     code=new JLabel("code");
+     code.setBounds(60, 150, 100, 100);
+     code.setFont(font1);
+     bg.add(code);
+	
+     name=new JLabel("name");
+     name.setFont(font1);
+     name.setBounds(300, 150,100, 100);
+     // name.setFont(font1);
+     bg.add(name);
+    
+     
+     borrow=new JLabel("borrow ");
+     borrow.setFont(font1);
+     borrow.setBounds(60, 250,100, 100);
+     // name.setFont(font1);
+     bg.add(borrow);
+     
+
+     total=new JLabel("total");
+     total.setFont(font1);
+     total.setBounds(300, 250,100, 100);
+     // name.setFont(font1);
+     bg.add(total);
+     
+     
+    
+     
+     
+     
+     
+    NAME = new JTextField();
+	CODE= new JTextField();
+	BORROW=new JTextField();
+	TOTAL=new JTextField();
+	
+	CODE.setBounds(140, 185, 100, 30);
+	bg.add(CODE);
+	
+	NAME.setBounds(390, 185, 100, 30);
+	bg.add(NAME);
+	
+	BORROW.setBounds(160, 285, 100, 30);
+	bg.add(BORROW);
+	
+	TOTAL.setBounds(390, 285, 100, 30);
+	bg.add(TOTAL);
+	
+	delete =new JButton("Delete");
+	delete.setBounds(220, 350, 100, 30);
+	bg.add(delete);
+	
+	
+	BORROW.addMouseListener(new MouseListener() {
+		
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseExited(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseEntered(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent arg0) {
+			// TODO Auto-generated method stub
+			
+		}
+	});
+	CODE.addMouseListener(new MouseListener() {
+		
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	});
+	TOTAL.addMouseListener(new MouseListener() {
+		
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	});
+	
+	delete.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			System.out.println("enter user");
+	       	
+	       	
+			try {
+				delete_method();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			
+		}
+	});
+	
+	}
+	
+	
+	
+	
+	
+	public void delete_method() throws SQLException {
+	//int a=	Integer.parseInt(CODE.getText());
+		Connection con = null;
+		PreparedStatement pst;
+	// int p=JOptionPane.showConfirmDialog(null, "Are you Sure to Delete?","Delete",JOptionPane.YES_NO_OPTION);
+	
+	   /* 	  
+	    	 
+		//String a=sc.next();
+		oracle.jdbc.driver.OracleDriver obj=new oracle.jdbc.driver.OracleDriver();
+		Connection con=	DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system","password");
+		PreparedStatement stmt=con.prepareStatement("delete from rp where sr=?");
+		stmt.setString(1, CODE.getText());
+		stmt.executeUpdate();
+		
+		
+		
+	System.out.println("succesful");
+	
+	    	  
+	    	  
+	    	  }
+	    	  
+	    	  
+	    	  
+	 */   	  
+	     
+
+	  int p=JOptionPane.showConfirmDialog(null, "Are you Sure to Delete?","Delete",JOptionPane.YES_NO_OPTION);
+      if(p==0)
+      {
+    		
+    	// int sql=Integer.parseInt(CODE.getText());
+      try {
+          pst=con.prepareStatement("delete from rp where sr=?");
+          
+          pst.setString(1,CODE.getText());
+
+          pst.execute();
+
+           JOptionPane.showMessageDialog(null, "Data Deleted Successfully"); 
+      } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,"We face a Problem."); 
+      }
+
+      }}
+	
+	
+	
+	
+	
+	public static void main(String[] args) {
+	new 	Deletep();
+
+	}
+
+}

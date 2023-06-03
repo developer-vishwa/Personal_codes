@@ -1,0 +1,129 @@
+home page
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+public class Home_page  extends JFrame{
+
+	JFrame frame;
+    JMenuBar menu;	
+public void Swing1_frame() {
+	// frame
+			setSize(900, 600);
+			setLayout(null);
+			//setResizable(false);
+			setLocationRelativeTo(null);
+			setDefaultCloseOperation(EXIT_ON_CLOSE);
+			setTitle("admin login page");
+		
+			
+			/*
+			 * 
+			 * iamge add in frame
+			 * 
+			 */
+			ImageIcon backgroung_Image = new ImageIcon("home.jpg");
+	        Image img = backgroung_Image.getImage();
+			Image temp_img = img.getScaledInstance(900, 600, Image.SCALE_SMOOTH);
+			backgroung_Image = new ImageIcon(temp_img);
+			JLabel bg = new JLabel("", backgroung_Image, JLabel.CENTER);
+			add(bg);
+			//bg.add(login);
+			//bg.add(head);
+
+			bg.setBounds(0, 0, 900, 600);
+			setVisible(true);
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    jmenubar();
+    
+}
+
+	
+	
+	
+	private void jmenubar() {
+		
+		Font font=new Font("Constantia",Font.TRUETYPE_FONT,20);
+		
+		menu=new JMenuBar();
+		 
+		 JMenu file=new JMenu("vishwa graphics ");
+		 JMenu file1=new JMenu("package costomer");
+		 JMenu file2=new JMenu("new ");
+		 
+		 file.setFont(font);
+		 file1.setFont(font);
+		 
+		//add file1 mambers
+		 
+	      JMenuItem i1=new JMenuItem(" costomer insert details");         
+	      JMenuItem i2=new JMenuItem("costomer delate account");                  
+	      JMenuItem i3=new JMenuItem("costomer update details");                         
+           
+	
+           
+          i1.setFont(font);
+          i2.setFont(font);
+          i3.setFont(font);
+          //i1.setFont(font);
+	file1.add(i1);
+	file1.add(i2);
+	file1.add(i3);
+	//file1.add(i4);
+	
+	menu.add(file);
+	menu.add(file1);
+	//bg.setJMenuBar(menu);
+
+
+	
+	i1.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+		new 	Insert();
+			
+		}
+	});	
+	
+	
+	i3.addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			new Update_info();
+			
+		}
+	});
+	
+	
+	}
+
+
+
+
+	public static void main(String[] args) throws Exception {
+		 Home_page obj =new Home_page(); 	
+		
+		obj.Swing1_frame();
+		
+		
+		
+		
+	}
+
+}

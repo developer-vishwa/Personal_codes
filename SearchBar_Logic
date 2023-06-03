@@ -1,0 +1,35 @@
+search bar logic 
+
+
+	private void button_add() throws SQLException {
+				/*Connection con = null;
+				PreparedStatement pst;
+				oracle.jdbc.driver.OracleDriver obj=new oracle.jdbc.driver.OracleDriver();
+				con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521","system","password");
+				System.out.println("connection  succes");
+				*/
+				PreparedStatement pst;
+				
+			Connection conn=Connection_class.getconnection();
+				String sql=" select name from vi where sr=?";
+				pst=conn.prepareStatement(sql);
+				int id=Integer.parseInt(SERACH_ID.getText());
+				pst.setInt(1, id);
+				ResultSet rsmt=pst.executeQuery();
+				if(rsmt.next()==false) {
+					 JOptionPane.showMessageDialog(null,"record is not found");
+					
+				ID.setText("");
+				NAME.setText("");
+				SERACH_ID.setText("");
+				}else
+				{
+					NAME.setText(rsmt.getString("name"));
+					
+					
+				}
+				
+			}
+
+			
+		});
